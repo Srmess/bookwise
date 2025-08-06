@@ -43,7 +43,7 @@ class Validation
 
         if (strlen($value) == 0) {
 
-            $this->validations[] = "O $field é obrigatório.";
+            $this->validations[] = "$field é obrigatório.";
         }
     }
 

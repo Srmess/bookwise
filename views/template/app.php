@@ -27,9 +27,9 @@
 
             <ul>
 
-                <?php if (isset($_SESSION['auth'])): ?>
+                <?php if (auth()): ?>
 
-                    <li><a href="/logout">Oi, <?= $_SESSION['auth']->name ?></a></li>
+                    <li><a href="/logout">Oi, <?= auth()->name ?></a></li>
 
                 <?php else: ?>
 

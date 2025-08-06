@@ -26,3 +26,20 @@ function abort($code)
     view($code);
     die();
 }
+
+function flash()
+{
+    return new Flash;
+}
+
+function config($key = null)
+{
+    $config = require 'config.php';
+
+
+    if (strlen($key) > 0) {
+        return $config[$key];
+    }
+
+    return $config;
+}

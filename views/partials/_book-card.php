@@ -1,19 +1,23 @@
-            <div class="p-2 rounded border-stone-800 border-2 bg-stone-900">
+<div class="p-2 rounded border-stone-800 border-2 bg-stone-900">
 
-                <div class="flex">
+    <div class="flex gap-2">
 
-                    <div class="w-1/3"><?= $book->user_id ?></div>
+        <div class="w-1/3">
 
-                    <div class="space-y-1">
+            <img src="<?= $book->book_cover ?>" alt="Capa do livro" class="w-60 rounded">
 
-                        <a href="/livro?id=<?= $book->id ?>" class="font-semibold hover:underline"><?= $book->title ?></a>
-                        <div class="text-xs italic"><?= $book->author ?></div>
-                        <div class="text-xs italic"><?= str_repeat('⭐', $book->review_avarange) ?>(<?= $book->review_amount ?> Avaliações)</div>
+        </div>
 
-                    </div>
+        <div class=" flex flex-col gap-1">
 
-                </div>
+            <a href="/livro?id=<?= $book->id ?>" class="font-semibold hover:underline"><?= $book->title ?></a>
+            <div class="text-xs italic"><?= $book->author ?></div>
+            <div class="text-xs italic"><?= str_repeat('⭐', $book->review_avarange) ?>(<?= $book->review_amount ?> Avaliações)</div>
 
-                <div class="text-sm mt-2"><?= $book->description ?></div>
+        </div>
 
-            </div>
+    </div>
+
+    <div class="text-sm mt-2"><?= $book->description ?></div>
+
+</div>

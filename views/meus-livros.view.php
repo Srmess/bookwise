@@ -18,7 +18,7 @@
 
             <h1 class="border-b border-stone-700 text-stone-400 font-bold px-4 py-2">Cadastre um novo livro!</h1>
 
-            <form class="p-4 space-y-4" method="POST" action="/create-book">
+            <form class="p-4 space-y-4" method="POST" action="/create-book" enctype="multipart/form-data">
 
                 <?php if ($validations = flash()->get('my_books_validation')): ?>
 
@@ -37,6 +37,15 @@
                     </div>
 
                 <?php endif; ?>
+
+
+                <div class="flex flex-col">
+
+                    <label class="text-stone-400 mb-1">Capa do livro</label>
+
+                    <input type="file" name="book_cover" class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-2 py-1 w-full">
+
+                </div>
 
                 <div class="flex flex-col">
 

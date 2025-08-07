@@ -10,6 +10,7 @@ class Book
     public $user_id;
     public $review_amount;
     public $review_avarange;
+    public $book_cover;
 
     private static function query($where, $params)
     {
@@ -23,6 +24,7 @@ class Book
             b.author,
             b.description,
             b.released_year,
+            b.book_cover,
             count(r.id) as review_amount,
             round(sum(r.rating) / 5) as review_avarange
             from
@@ -34,7 +36,8 @@ class Book
             b.title,
             b.author,
             b.description,
-            b.released_year",
+            b.released_year,
+            b.book_cover",
             class: self::class,
             params: $params
         );

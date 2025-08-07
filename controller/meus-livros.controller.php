@@ -1,9 +1,12 @@
 <?php
 
-$searchparam = $_REQUEST['searchparam'] ?? '';
+if (!auth()->id) {
+    header('location: /');
+}
 
 $books = $database->query(
-    query: " select
+    query: '
+        select
   b.id,
   b.title,
   b.author,
@@ -14,16 +17,16 @@ $books = $database->query(
 from
   books b
   left join reviews r on r.book_id = b.id
-  where b.title like :search
+where
+  b.user_id = :id
 group by
   b.id,
   b.title,
   b.author,
   b.description,
-  b.released_year",
+  b.released_year',
     class: Book::class,
-    params: ['search' => "%$searchparam%"]
+    params: ['id' => auth()->id]
 )->fetchAll();
 
-
-view('index', compact('books'));
+view('meus-livros', compact('books'));

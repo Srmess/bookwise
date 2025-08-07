@@ -8,4 +8,6 @@ class Book
     public $description;
     public $released_year;
     public $user_id;
+    public $review_amount;
+    public $review_avarange;
 }

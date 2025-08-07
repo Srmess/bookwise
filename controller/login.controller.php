@@ -1,6 +1,6 @@
 <?php
 
-require 'Validation.php';
+require '../Validation.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
